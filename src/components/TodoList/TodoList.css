@@ -73,7 +73,7 @@ main {
   height: 35%;
   width: 100%;
   background-color: #7B9095;
-  background-image: url("./img/jessica-pamp-Qsc-ewfUJEs-unsplash-ConvertImage.jpg");
+  /*background-image: url("../img/jessica-pamp-Qsc-ewfUJEs-unsplash-ConvertImage.jpg");*/
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -2;
