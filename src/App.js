@@ -3,13 +3,14 @@ import './App.css';
 import NewTodoInput from "./components/NewTodoInput/NewTodoInput.js";
 import TodoList from "./components/TodoList/TodoList.js";
 import Todo from "./components/Todo/Todo.js";
+import EditTodo from "./components/Edit/Edit.js";
 
 
 const addTodoBtn = "+";
 const placeholder = "new task";
 const labelResetBtn = "reset"
 
-const todosData = [
+/*const todosData = [
   {
     id: "134713749319748913",
     title: "Get vaccine",
@@ -25,27 +26,21 @@ const todosData = [
     title: "Relax",
     isDone: false
   }
-];
+];*/
 
 export default function App() {
-  const [todosState, setTodos] = useState(todosData);
+  const [todosState, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || []);
 
 function handleDelete(todoId) {
-  console.log(`Todo id = ${todoId}`);
   const newTodos = todosState.filter(({ id }) => id !== todoId )
-
-  setTodos(newTodos);
+  handleSaveTodo(newTodos);
 }
 
 function handleNewTodo(newTodo) {
   const newTodos = [newTodo, ...todosState];
-  console.log(newTodos)
-  setTodos(newTodos);
+  handleSaveTodo(newTodos);
 }
 
-function clearAll() {
-  setTodos([]);
-}
 
 function handleCompleteTodo(todoId) {
   const newTodos = todosState.map((todo) => {
@@ -53,10 +48,25 @@ function handleCompleteTodo(todoId) {
       todo.isDone = !todo.isDone;
     }
     return todo
-  })
-
-  setTodos(newTodos)
+  });
+  handleSaveTodo(newTodos);
 }
+
+function handleSaveTodo(newTodos) {
+  localStorage.setItem('todos', JSON.stringify(newTodos));
+  setTodos(newTodos);
+}
+
+function handleEdit(todoId, newTitle) {
+  const newTodos = todosState.map((todo) => {
+    if(todo.id === todoId) {
+      todo.title = newTitle;
+    }
+    return todo
+  });
+  handleSaveTodo(newTodos);
+}
+
 
   return (
     <div className="App">
@@ -70,7 +80,6 @@ function handleCompleteTodo(todoId) {
       </header>
       <main>
         <div className="container__todo">
-      This is the main section
           <NewTodoInput addTodo={handleNewTodo} labelBtn={addTodoBtn} placeholder={placeholder} />
           <div className="container__deleteButton">
             <TodoList
@@ -78,8 +87,10 @@ function handleCompleteTodo(todoId) {
             labelResetBtn={labelResetBtn}
             deleteTodo={handleDelete}
             completedTodo={handleCompleteTodo}
-            />
-            <button onClick={clearAll}>Clear all</button>
+            editTodo={handleEdit}/>
+          </div>
+          <div className="container__deleteButton">
+          <button  onClick={() => handleSaveTodo([])} className="button reset__Button rounded">{labelResetBtn}</button>
           </div>
         </div>
 
