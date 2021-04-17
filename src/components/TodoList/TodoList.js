@@ -2,28 +2,27 @@ import React from "react";
 import Todo from "../Todo/Todo";
 import "./TodoList.css";
 
-function TodoList ({ todos , labelResetBtn, deleteTodo, completedTodo }) {
-console.log('todos', todos);
+function TodoList ({ todos , labelResetBtn, deleteTodo, completedTodo, editTodo }) {
 
   return (
     <div className="task__list">
-      <h2>TASKS</h2>
+      <h2>MY TASKS</h2>
       <ul  className="list-group">
         {todos.map((todo, index) => (
 
           <Todo
-          todoId={todo.id}
+          id={todo.id}
           key={index}
           title={todo.title}
           isDone={todo.isDone}
           deleteTodo={deleteTodo}
+          completedTodo={completedTodo}
+          editTodo={editTodo}
           />
         ))}
         </ul>
 
-    /*<div className="container__deleteButton">*/
-    /*<button className="button reset__Button rounded">{labelResetBtn}</button>*/
-    /*</div>*/
+
 
     </div>
   );
