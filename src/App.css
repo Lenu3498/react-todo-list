@@ -70,7 +70,7 @@ main {
   flex-direction: column;
   content: '';
   position: absolute;
-  height: 35%;
+  height: 40%;
   width: 100%;
   background-color: #7B9095;
   background-image: url("./img/jessica-pamp-Qsc-ewfUJEs-unsplash-ConvertImage.jpg");
@@ -177,7 +177,7 @@ font-size: 3em;
 .task__list {
   font-size: 2em;
   color: #46505A;
-  width: 100%;
+  width: 70%;
   height: 90%;
   /*border: 5px solid blue;*/
   overflow-y: scroll;

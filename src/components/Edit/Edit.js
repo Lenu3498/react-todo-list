@@ -20,13 +20,13 @@ function handleInputValue({target}) {
     <input
     type='text'
     value={inputValue}
-    className="newInput rounded-top"
+    className="newInput__edit rounded-top"
     onChange={handleInputValue}
     />
 
     <button
     onClick={handleSaveButton}
-    className="submit__Button rounded-bottom">update todo
+    className="submit__Button__update rounded-bottom">update todo
     </button>
     </div>
   )
