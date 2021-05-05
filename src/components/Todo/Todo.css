@@ -140,6 +140,10 @@ h3 {
   background-color: white;
 }
 
+.container__buttons {
+  justify-content: space-between;
+}
+
 .submit__Button {
   text-align: center;
 /*border: 6px solid yellow;*/
@@ -177,7 +181,7 @@ font-size: 3em;
 .task__list {
   font-size: 2em;
   color: #46505A;
-  width: 100%;
+  width: 80%;
   height: 90%;
   /*border: 5px solid blue;*/
   overflow-y: scroll;
@@ -189,6 +193,7 @@ font-size: 3em;
   justify-content: space-between;
   background-color: #7B9095;
 }
+
 
 .checkedBox {
   background-color: #7B9095;

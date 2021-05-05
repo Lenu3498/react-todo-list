@@ -26,8 +26,10 @@ function newEditState(editState) {
       checked={isDone}
       onChange={() => completedTodo(id)} />
       {title}
-      <button onClick={() => deleteTodo(id)}> delete </button>
-      <button onClick={() => newEditState(true)}> edit </button>
+      <div className="container__buttons">
+      <button className="btn btn-secondary rounded delete" onClick={() => deleteTodo(id)}> remove </button>
+      <button className="btn btn-secondary rounded delete" onClick={() => newEditState(true)}> edit </button>
+      </div>
     </li>
   )}
     </div>

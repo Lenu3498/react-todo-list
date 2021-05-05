@@ -6,7 +6,7 @@ function TodoList ({ todos , labelResetBtn, deleteTodo, completedTodo, editTodo 
 
   return (
     <div className="task__list">
-      <h2>MY TASKS</h2>
+      <h2>DOING</h2>
       <ul  className="list-group">
         {todos.map((todo, index) => (
 
